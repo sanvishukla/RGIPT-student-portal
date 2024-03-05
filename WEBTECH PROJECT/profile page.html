@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 35px;
+            text-align: center;
+        }
+        
+        .college-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 100px;
+            cursor: pointer;
+        }
+        
+        .home-button {
+            background-color: hsl(0, 0%, 100%);
+            position: absolute;
+            /* Set position to absolute */
+            top: 10px;
+            /* Align button to the top */
+            left: 70px
+        }
+        
+        .back-button {
+            background-color: hsl(0, 0%, 100%);
+            position: absolute;
+            /* Set position to absolute */
+            top: 10px;
+            /* Align button to the top */
+            left: 10px
+        }
+        
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #000;
+        }
+        
+        .student-profile .card {
+            border-radius: 10px;
+        }
+        
+        .student-profile .card .card-header .profile_img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+        
+        .student-profile .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .student-profile .card p {
+            font-size: 16px;
+            color: #000;
+        }
+        
+        .student-profile .table th,
+        .student-profile .table td {
+            font-size: 14px;
+            padding: 5px 10px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="studentprofile.html " class=" button home-button ">
+            <img src="icons8-home-48.png"> </a>
+        <a href="studentprofile.html " class="button back-button ">
+            <img src="icons8-back-64.png" width="48" height="48"></a>
+        <img src="LOGO.png" alt="College Logo" class="college-logo">
+        <img src="LOGO.png" alt="College Logo" class="college-logo">
+        <h2>STUDENT PROFILE</h2>
+    </div>
+    <!-- Student Profile -->
+    <div class="student-profile py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-transparent text-center">
+                            <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
+                            <h3>Sanvi Shukla</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0"><strong class="pr-1">Roll Number:</strong>22CS3054</p>
+                            <p class="mb-0"><strong class="pr-1">Batch:</strong>2026</p>
+                            <p class="mb-0"><strong class="pr-1">Course:</strong>B.Tech</p>
+                            <p class="mb-0"><strong class="pr-1">Branch:</strong>Computer Science and Engineering</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                        </div>
+                        <div class="card-body pt-0">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th width="30%">Date of Birth</th>
+                                    <td width="2%">:</td>
+                                    <td>06/08/2003</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Personal Contact Number</th>
+                                    <td width="2%">:</td>
+                                    <td>9871277790</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Parent's Contact Number </th>
+                                    <td width="2%">:</td>
+                                    <td>9971015790</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">College Email ID</th>
+                                    <td width="2%">:</td>
+                                    <td>22cs3054@rgipt.ac.in</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Personal Email ID</th>
+                                    <td width="2%">:</td>
+                                    <td>sanvishukla@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Address</th>
+                                    <td width="2%">:</td>
+                                    <td>NOIDA</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Room Number</th>
+                                    <td width="2%">:</td>
+                                    <td>G-410</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

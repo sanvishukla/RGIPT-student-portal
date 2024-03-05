@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGIPT Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 35px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .college-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+        }
+        
+        .container {
+            margin: 20px auto;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 50px;
+            width: 50%;
+            text-align: center;
+            /* Center aligning the buttons */
+        }
+        
+        .box h2 {
+            margin-top: 0;
+        }
+        
+        .box a.button {
+            display: block;
+            /* Changed from inline-block to block */
+            margin: 10px auto;
+            /* Center aligning the buttons */
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .box a.button:hover {
+            background-color: #0056b3;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 100px;
+            cursor: pointer;
+        }
+        
+        .home-button {
+            background-color: hsl(0, 0%, 100%);
+            position: absolute;
+            /* Set position to absolute */
+            top: 10px;
+            /* Align button to the top */
+            left: 70px
+        }
+        
+        .back-button {
+            background-color: hsl(0, 0%, 100%);
+            position: absolute;
+            /* Set position to absolute */
+            top: 10px;
+            /* Align button to the top */
+            left: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="studentprofile.html " class=" button home-button ">
+            <img src="icons8-home-48.png"> </a>
+        <a href="studentprofile.html" class="button back-button ">
+            <img src="icons8-back-64.png" width="48" height="48"></a>
+        <h1>GATE PASS </h1>
+        <img src="LOGO.png " alt="College Logo " class="college-logo ">
+    </div>
+
+    <div class="container ">
+        <div class="box ">
+            <h2>Choose Gate Pass Type:</h2>
+            <a href="local gate pass.html " class="button ">Local Gate Pass</a>
+            <a href="OUTSTATION GATE PASS.html " class="button ">Outstation Gate Pass</a>
+        </div>
+    </div>
+</body>
+
+</html>

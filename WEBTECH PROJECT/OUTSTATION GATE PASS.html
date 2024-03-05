@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outstation Gate Pass Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 35px;
+            text-align: center;
+        }
+        
+        .college-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+        }
+        
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 100px;
+            cursor: pointer;
+        }
+        
+        .home-button {
+            background-color: hsl(0, 0%, 100%);
+            position: absolute;
+            /* Set position to absolute */
+            top: 10px;
+            /* Align button to the top */
+            left: 70px
+        }
+        
+        .back-button {
+            background-color: hsl(0, 0%, 100%);
+            position: absolute;
+            /* Set position to absolute */
+            top: 10px;
+            /* Align button to the top */
+            left: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="studentprofile.html " class=" button home-button ">
+            <img src="icons8-home-48.png"> </a>
+        <a href="GATEPASS.html" class="button back-button ">
+            <img src="icons8-back-64.png" width="48" height="48"></a>
+        <img src="LOGO.png" alt="College Logo" class="college-logo">
+        <img src="LOGO.png" alt="College Logo" class="college-logo">
+        <h2>OUTSTATION GATE PASS APPLICATION FORM</h2>
+    </div>
+
+    <form id="gatePassForm">
+        <h3>Personal Information</h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" name="rollNumber" required>
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course">
+
+        <label for="semester">Semester:</label>
+        <input type="text" id="semester" name="semester">
+
+        <h3>Gate Pass Details</h3>
+        <label for="roomNumber">Room Number:</label>
+        <input type="text" id="roomNumber" name="roomNumber">
+
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place">
+
+        <label for="purpose">Purpose:</label>
+        <input type="text" id="purpose" name="purpose">
+
+        <h3>Overnight Stay Information</h3>
+        <label for="overnightStay">Overnight Stay:</label>
+        <input type="text" id="overnightStay" name="overnightStay">
+
+        <h3>Time Details</h3>
+        <label for="timeOut">Time Out:</label>
+        <input type="time" id="timeOut" name="timeOut">
+
+        <label for="dateOut">Date Out:</label>
+        <input type="date" id="dateOut" name="dateOut">
+
+        <label for="timeIn">Time In:</label>
+        <input type="time" id="timeIn" name="timeIn">
+
+        <label for="dateIn">Date In:</label>
+        <input type="date" id="dateIn" name="dateIn">
+
+        <h3>Leave Duration</h3>
+        <label for="leaveDays">Number of Days applied for leave:</label>
+        <input type="number" id="leaveDays" name="leaveDays" min="1" required>
+
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber">
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('gatePassForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                rollNumber: document.getElementById('rollNumber').value,
+                course: document.getElementById('course').value,
+                semester: document.getElementById('semester').value,
+                roomNumber: document.getElementById('roomNumber').value,
+                place: document.getElementById('place').value,
+                purpose: document.getElementById('purpose').value,
+                overnightStay: document.getElementById('overnightStay').value,
+                timeOut: document.getElementById('timeOut').value,
+                dateOut: document.getElementById('dateOut').value,
+                timeIn: document.getElementById('timeIn').value,
+                dateIn: document.getElementById('dateIn').value,
+                leaveDays: document.getElementById('leaveDays').value,
+                contactNumber: document.getElementById('contactNumber').value
+            };
+            console.log(formData);
+        });
+    </script>
+</body>
+
+</html>

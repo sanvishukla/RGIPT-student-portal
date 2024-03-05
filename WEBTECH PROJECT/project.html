@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGIPT Hostel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('rgipt.jpeg');
+            /* Replace 'college_image.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px);
+            /* Adjust the blur strength as needed */
+            z-index: -1;
+        }
+        
+        .container {
+            position: relative;
+            overflow: hidden;
+            width: 320px;
+            max-width: 90%;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Adjust the opacity as needed */
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        #collegeName {
+            color: #007bff;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        #collegeLogo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            border-color: #007bff;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .switch {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .switch button {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .switch button:hover {
+            text-decoration: none;
+        }
+        
+        .signup-message,
+        .error-message {
+            color: #28a745;
+            margin-top: 10px;
+        }
+        
+        .error-message {
+            color: #dc3545;
+        }
+        
+        .otp-section {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .otp-input {
+            width: 30px;
+            height: 30px;
+            /* Make it square */
+            margin: 10px 5px;
+            padding: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .submit-otp {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .resend-otp {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .resend-otp:hover {
+            text-decoration: none;
+        }
+        
+        #toggleLogin {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="content">
+            <div id="collegeName">
+                RAJIV GANDHI INSTITUTE OF PETROLEUM TECHNOLOGY
+            </div>
+            <img id="collegeLogo" src="logo.png" alt="College Logo">
+            <h2 id="formTitle">Login</h2>
+            <form id="loginForm">
+                <label for="userType">Who are you?</label>
+                <select id="userType" name="userType">
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                </select>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <div class="error-message" id="loginError"></div>
+            </form>
+            <div class="switch">
+                <button id="toggleSignup">Don't have an account?</button>
+            </div>
+            <form id="signupForm" style="display: none;">
+                <label for="signupUserType">Who are you?</label>
+                <select id="signupUserType" name="signupUserType">
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                </select>
+                <input type="email" id="signupEmail" name="signupEmail" placeholder="Email" required>
+                <button id="getOtpBtn">Get OTP</button>
+                <!-- OTP Section -->
+                <div class="otp-section" id="otpSection">
+                    <input type="text" class="otp-input" maxlength="1">
+                    <input type="text" class="otp-input" maxlength="1">
+                    <input type="text" class="otp-input" maxlength="1">
+                    <input type="text" class="otp-input" maxlength="1">
+                    <div class="submit-otp">
+                        <button id="submitOtpBtn">Submit OTP</button>
+                    </div>
+                    <div id="otpError" class="error-message"></div>
+                    <p class="resend-otp" id="resendOtp">Resend OTP</p>
+                </div>
+                <div class="signup-message" id="signupMessage"></div>
+                <div class="error-message" id="signupError"></div>
+            </form>
+            <div class="switch">
+                <button id="toggleLogin">Existing account? Click here.</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const toggleSignup = document.getElementById('toggleSignup');
+        const toggleLogin = document.getElementById('toggleLogin');
+        const getOtpBtn = document.getElementById('getOtpBtn');
+        const submitOtpBtn = document.getElementById('submitOtpBtn');
+        const resendOtpLink = document.getElementById('resendOtp');
+        const otpSection = document.getElementById('otpSection');
+        const loginError = document.getElementById('loginError');
+        const signupMessage = document.getElementById('signupMessage');
+        const signupError = document.getElementById('signupError');
+        const formTitle = document.getElementById('formTitle');
+
+        toggleSignup.addEventListener('click', () => {
+            signupForm.style.display = 'block';
+            toggleLogin.style.display = 'block';
+            loginForm.style.display = 'none';
+            toggleSignup.style.display = 'none';
+            loginError.innerHTML = '';
+            signupMessage.innerHTML = '';
+            signupError.innerHTML = '';
+            otpSection.style.display = 'none'; // Hide OTP section on toggle
+            formTitle.innerHTML = 'Signup';
+        });
+
+        toggleLogin.addEventListener('click', () => {
+            loginForm.style.display = 'block';
+            toggleSignup.style.display = 'block';
+            signupForm.style.display = 'none';
+            toggleLogin.style.display = 'none';
+            loginError.innerHTML = '';
+            signupMessage.innerHTML = '';
+            signupError.innerHTML = '';
+            formTitle.innerHTML = 'Login';
+        });
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const userType = document.getElementById('userType').value;
+            const email = document.getElementById('email').value;
+
+            if (userType === 'student' && !email.endsWith('@rgipt.ac.in')) {
+                loginError.innerHTML = 'Invalid email domain for students. Use @rgipt.ac.in';
+            } else {
+                // Perform login logic here
+                loginError.innerHTML = '';
+                alert(`Logged in as ${userType} with email: ${email}`);
+            }
+        });
+
+        signupForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const signupUserType = document.getElementById('signupUserType').value;
+            const signupEmail = document.getElementById('signupEmail').value;
+            const enteredOtp = Array.from(document.querySelectorAll('.otp-input')).map(input => input.value).join('');
+
+            // Simulate OTP verification (in a real scenario, this would be done server-side)
+            if (otpSection.style.display === 'flex' && enteredOtp !== '1234') {
+                document.getElementById('otpError').innerHTML = 'Invalid OTP. Please try again.';
+                return;
+            }
+
+            // Perform signup logic here
+            signupMessage.innerHTML = `Account created for ${signupUserType} with email: ${signupEmail}`;
+            signupError.innerHTML = '';
+        });
+
+        getOtpBtn.addEventListener('click', () => {
+            // Simulate OTP generation (in a real scenario, this would be done server-side)
+            alert('OTP sent to your email address. Please check your inbox.');
+
+            // Display OTP section
+            otpSection.style.display = 'flex';
+        });
+
+        submitOtpBtn.addEventListener('click', () => {
+            const enteredOtp = Array.from(document.querySelectorAll('.otp-input')).map(input => input.value).join('');
+
+            // Simulate OTP verification (in a real scenario, this would be done server-side)
+            if (enteredOtp === '1234') {
+                signupMessage.innerHTML = 'Account created successfully!';
+                signupError.innerHTML = '';
+            } else {
+                document.getElementById('otpError').innerHTML = 'Invalid OTP. Please try again.';
+            }
+        });
+
+        resendOtpLink.addEventListener('click', () => {
+            // Simulate OTP resend (in a real scenario, this would be done server-side)
+            alert('OTP resent to your email address. Please check your inbox.');
+        });
+    </script>
+</body>
+
+</html>
